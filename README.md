@@ -10,7 +10,7 @@ Masks access patterns to data during masking operations. It can reorder the reco
 `./dm-data-access-pattern-masker [params]`
 
 ## Parameters
-- `--seed`: No description provided
+- `--seed`: Optional seed for the random number generator (for reproducibility).
 - `--header`: Specify if the input CSV file has a header row. Defaults to False.
 
 ## License
