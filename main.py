@@ -3,7 +3,7 @@ import logging
 import random
 import pandas as pd
 import os
-from typing import List, Union
+from typing import Union
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -51,6 +51,10 @@ def shuffle_data(input_file: str, output_file: str, seed: Union[int, None] = Non
             logging.info(f"Using seed {seed} for shuffling.")
 
         logging.info("Shuffling data...")
+        # iloc is positional, so the frame's index labels do not matter
+        # here. The output is a permutation of the input rows: same
+        # multiset of records, different order, and index=False on write
+        # keeps the old row positions from leaking the original order.
         indices = list(df.index)
         random.shuffle(indices)
         shuffled_df = df.iloc[indices]
