@@ -3,6 +3,7 @@ import logging
 import random
 import pandas as pd
 import os
+from pathlib import Path
 from typing import Union
 
 # Configure logging
@@ -17,7 +18,7 @@ def setup_argparse():
     """
     parser = argparse.ArgumentParser(description="Masks access patterns to data during masking operations by shuffling data.")
     parser.add_argument("input_file", help="Path to the input CSV file.")
-    parser.add_argument("output_file", help="Path to the output CSV file.")
+    parser.add_argument("output_file", help="Path to the output CSV file. It must not resolve to the input file.")
     parser.add_argument("--seed", type=int, default=None, help="Optional seed for the random number generator (for reproducibility).")
     parser.add_argument("--header", action="store_true", help="Specify if the input CSV file has a header row. Defaults to False.")  # Added header argument
 
@@ -37,6 +38,8 @@ def shuffle_data(input_file: str, output_file: str, seed: Union[int, None] = Non
         Exception: If an error occurs during file processing.
     """
     try:
+        if Path(input_file).resolve() == Path(output_file).resolve():
+            raise ValueError("Output file must not be the same file as the input file.")
         if not os.path.exists(input_file):
             raise FileNotFoundError(f"Input file not found: {input_file}")
 

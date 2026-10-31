@@ -10,6 +10,8 @@ Masks access patterns to data during masking operations. It can reorder the reco
 `./dm-data-access-pattern-masker [params]`
 
 ## Parameters
+- `input_file`: Path to the input CSV file
+- `output_file`: Path to the output CSV file. It must not be the input file: if the output path resolves to the input file, the run refuses and exits 1 before any write.
 - `--seed`: Optional seed for the random number generator (for reproducibility).
 - `--header`: Specify if the input CSV file has a header row. Defaults to False.
 
