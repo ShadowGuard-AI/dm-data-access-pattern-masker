@@ -45,6 +45,10 @@ def shuffle_data(input_file: str, output_file: str, seed: Union[int, None] = Non
 
         logging.info(f"Reading data from {input_file}...")
         try:
+            # The default is no header, and that choice is sharp: run
+            # this on a headed CSV without --header and the header row
+            # is treated as a record and shuffled into the middle of
+            # the output, with the run still reporting success.
             df = pd.read_csv(input_file, header='infer' if header else None) # Explicitly set the header argument
         except Exception as e:
             raise Exception(f"Error reading CSV file: {e}")
@@ -58,6 +62,10 @@ def shuffle_data(input_file: str, output_file: str, seed: Union[int, None] = Non
         # here. The output is a permutation of the input rows: same
         # multiset of records, different order, and index=False on write
         # keeps the old row positions from leaking the original order.
+        # This works because read_csv hands back a RangeIndex whose
+        # labels are the positions. The list below is index values fed
+        # to a positional indexer, so a frame that ever arrived with a
+        # different index would shuffle by the wrong rows silently.
         indices = list(df.index)
         random.shuffle(indices)
         shuffled_df = df.iloc[indices]
