@@ -1,166 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Dm Data Access Pattern Masker: what it is, how it runs, where it stops</title>
-<meta name="description" content="Dm Data Access Pattern Masker is one of my projects. The README in the repo is short, so this page sticks to what the files themselves show.">
-<style>
-:root {
-  --bg: #121418; --panel: #1c2028; --ink: #e8ecf0;
-  --mut: #252b36;
-  --acc: #5cc8e0; --acc2: #f0a05c;
-  --line: #1c2028;
-}
-* { box-sizing: border-box; }
-body { margin: 0; background: var(--bg); color: var(--ink);
-  font-family: 'Book Antiqua', Georgia, serif; line-height: 1.55; }
-code, pre, .mono { font-family: 'Andale Mono', monospace; }
-a { color: var(--acc2); }
-.hero { padding: 3rem 6vw 1rem; }
-.hero img.banner { width: 100%; height: auto; border: 1px solid var(--line);
-  border-radius: 10px; }
-.logo { width: 92px; height: 92px; border-radius: 18px;
-  border: 1px solid var(--line); }
-h1 { font-size: 2.4rem; margin: 0.4em 0 0.1em; }
-h2 { border-bottom: 2px solid var(--acc); padding-bottom: 0.2em;
-  margin-top: 2em; }
-.lede { font-size: 1.15rem; max-width: 62ch; }
-main { padding: 0 6vw 3rem; max-width: 1180px; margin: 0 auto; }
-.grid { display: grid; gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
-.card { background: var(--panel); border: 1px solid var(--line);
-  border-radius: 12px; padding: 1rem 1.2rem; }
-.card.pop { animation: rise 0.7s ease both; }
-@keyframes rise { from { opacity: 0; transform: translateY(14px); }
-  to { opacity: 1; transform: none; } }
-pre.code { background: #101014; color: #e8e6df; padding: 1rem 1.2rem;
-  border-radius: 12px; overflow-x: auto; font-size: 0.86rem;
-  border-left: 5px solid var(--acc); }
-table { border-collapse: collapse; width: 100%; }
-td, th { border-bottom: 1px solid var(--line); padding: 0.45rem 0.6rem;
-  text-align: left; }
-.shots { display: grid; gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
-.shots img { width: 100%; height: auto; border: 1px solid var(--line);
-  border-radius: 10px; background: #f4f1e8; }
-footer { padding: 2rem 6vw; border-top: 1px solid var(--line);
-  color: var(--mut); }
-.rail { display: flex; gap: 1.2rem; align-items: flex-start; }
-.rail nav { position: sticky; top: 1rem; min-width: 180px; }
-@media (max-width: 760px) { .rail { flex-direction: column; }
-  .rail nav { position: static; } }
-@media (prefers-reduced-motion: reduce) {
-  .card.pop { animation: none; } * { scroll-behavior: auto; } }
-</style>
-</head>
-<body class="layout-term">
-<!-- This page exists for dm-data-access-pattern-masker alone: the layout (terminal-frame),
-     the colors, and the type were picked for this project, not
-     shared with the other project pages. The code block below is
-     copied from the file it names, line for line. If it looks
-     plain, that is because the project is plain, and I would
-     rather the page match the project than dress it up. The one
-     thing I will not do here is oversell: what this project does
-     not do is stated on the page, not hidden from it. -->
-<header class="hero">
-  <img class="logo" src="assets/logo.png" alt="Dm Data Access Pattern Masker logo">
-  <img class="banner" src="assets/banner.png" alt="">
-  <h1>Dm Data Access Pattern Masker</h1>
-  <p class="mono"><a href="https://github.com/ShadowGuard-AI/dm-data-access-pattern-masker">github.com/ShadowGuard-AI/dm-data-access-pattern-masker</a></p>
-</header>
+<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><title>dm-data-access-pattern-masker: Samurai Sword Polisher's Ten Days</title>
+<style>@font-face{font-family:Disp;src:url("fonts/BubblegumSans.ttf")}@font-face{font-family:Text;src:url("fonts/Archivo.ttf")}
+body{background:#f4f1e9;font-family:Text,sans-serif;color:#22201c;margin:0}main{max-width:920px;margin:0 auto;padding:28px}
+h1,h2,h3{font-family:Disp,serif;color:#ac2a22}section{background:#eae6da;padding:18px 22px;margin:16px 0;border-top:3px solid #946734}
+img{max-width:100%}.day{display:inline-block;background:#605038;color:#f4f1e9;font-family:Disp,serif;padding:4px 14px;border-radius:3px}
+button{background:#f4f1e9;color:#ac2a22;border:3px solid #946734;border-radius:46% 46% 12px 12px;padding:14px 26px;margin:4px;font-family:Disp,serif;border-bottom:8px dotted #946734}
+.card{background:#605038;padding:10px}.card div{background:#f4f1e9;padding:12px 16px}
+a{color:#22201c}a::before{content:"● ";color:#946734}a:hover::before{color:#ac2a22}
+:focus{outline:3px double #605038}pre{white-space:pre-wrap;font-family:Text,sans-serif}</style></head><body><main>
+<img src="intro-banner.png" alt="Introduction banner: the wet stone and the resting blade before any name is given">
+<h1>dm-data-access-pattern-masker: Samurai Sword Polisher's Ten Days</h1>
+<img src="logo.png" alt="Logo"><img src="banner.png" alt="Wordmark banner">
+<img src="scene.svg" alt="Animated scene in three bands">
+<div><button type="button">Shuffle the Rows</button></div>
+<p><span class="day">Seed, for Drawing the Same Shuffle Again</span> <span class="day">First Row Is a Header</span></p>
+<h3>Order Changes, Contents Do Not</h3><h3>The Header Row Can Be Lost</h3><h3>One Requirement Only</h3>
+<section><p><span class="day">Day one</span></p><h2>The whole job, stated small</h2><p>This program shuffles the rows of a CSV file. Row order changes. Row contents do not. No value inside any row is altered, added, or removed. The point is sequence itself: someone watching which records get touched, and in what order, learns nothing from the order this program leaves behind.</p></section>
+<section><p><span class="day">Day two</span></p><h2>The working call</h2><p>python3 main.py [input CSV path] [output CSV path], with two optional flags after the paths. Placeholders only are printed here. No path from any real machine is printed, and no record from any real file is printed.</p></section>
+<section><p><span class="day">Day three</span></p><h2>Install</h2><p>git clone https://github.com/ShadowGuard-AI/dm-data-access-pattern-masker</p><p>Note: the organisation spelling was corrected here. The clone line on this site reads ShadowGuard-AI, hyphenated. The README prints that organisation without its hyphen.</p></section>
+<section><p><span class="day">Day four</span></p><h2>Controls in parser order</h2><p>Input file, positional, a CSV path. Output file, positional, a CSV path, with this refusal beside it: where the resolved output path is the input file itself, the run refuses and exits 1 before anything is written. Seed, optional, an integer, default none: with a seed, the same shuffle can be drawn again; without one, it cannot. Header, a flag that is off by default: it declares that the first row is a header row.</p></section>
+<section><p><span class="day">Day five</span></p><h2>The Header Row Can Be Lost</h2><p>With the flag absent, the file is read with no header at all. A headed CSV run without the flag has its header row treated as an ordinary record. That row gets shuffled into the body of the output, and the run still reports success. With the flag present, the header is read as a header, kept out of the shuffle, and written back as a header. The README never explains this trap. Its parameter line says only that the flag specifies a header row and defaults to False, and gives no warning of it.</p></section>
+<section><p><span class="day">Day six</span></p><h2>How the shuffle is done</h2><p>The program builds the list of row positions, shuffles that list with the random module, then takes the rows positionally in the new order. Output is written with no index column, so the old positions are not carried across to betray the old order. Values travel with their own row. Columns stay where they were. Only the sequence of rows differs between input and output.</p></section>
+<section><p><span class="day">Day seven</span></p><h2>One Requirement Only</h2><p>Python with pandas, at 2.0.0 or later, is the single named requirement. The requirements file names pandas and nothing else. The input must be a CSV the pandas reader can parse, because a read failure is wrapped and raised, and the run ends at exit 1.</p></section>
+<section><p><span class="day">Day eight</span></p><h2>How a run can end</h2><p>Success logs that shuffling is complete. A missing input file ends the run at exit 1. An output path that resolves to the input ends it at exit 1. A read failure or a write failure ends it at exit 1. There is no partial output promise and no second mode.</p></section>
+<section><p><span class="day">Day nine</span></p><h2>Limits, stated plainly</h2><p>The tool changes order and nothing else. It offers no masking of values, no column handling, and no protection once the output order is compared against a known copy of the input. The position list is built from the frame index and fed to a positional indexer, which is sound for the plain positional index the CSV reader returns, and would silently shuffle the wrong rows for a frame carrying any other index. The seed is applied through the global random generator after the file is read, so a seeded run reproduces the shuffle only for the same input rows in the same input order.</p></section>
+<section><p><span class="day">Day ten</span></p><h2>Licence</h2><p>Copyright (c) ShadowGuard-AI</p><p>Note: that licence line is corrected in one respect only on this site. The organisation in that line is given in its hyphenated form here, and the correction is noted rather than hidden. A separate fact sits beside it. The repository LICENSE file holds the MIT License. Its holder line gives the pen name in full, followed by a parenthetical given name with a single initial, followed by the account handle. That fact is recorded. The line itself is not reproduced, and the initial is not expanded.</p></section>
+<div class="card"><div><h3>A finished shuffle</h3><p>A tray that reports a finished shuffle carries one small hourglass at its corner. Trays reporting anything else carry none. ◷</p></div></div>
+<section><h2>The preserved README record</h2><pre>
+![Banner](banner.png)
 
-<main>
-  <section class="rail">
-    <nav aria-label="on this page">
-      <p class="mono"><a href="#run">Run it</a><br>
-      <a href="#files">The files</a><br>
-      <a href="#sheets">The sheets</a><br>
-      <a href="https://github.com/ShadowGuard-AI/dm-data-access-pattern-masker">The repo</a></p>
-    </nav>
-    <div>
-      <p class="lede">Dm Data Access Pattern Masker is one of my projects. The README in the repo is short, so this page sticks to what the files themselves show.</p>
-      <div class="grid">
-        <div class="card pop"><h3>What it is</h3>
-          <p>Dm Data Access Pattern Masker: 5 files, 118 counted
-          lines across Python 100, Markdown 17, Text 1. One job, done in the
-          open, in files you can read.</p></div>
-        <div class="card pop"><h3>The biggest piece</h3>
-          <p><code>main.py</code> carries the most
-          lines. If the project grows, that file is where the growth
-          lands first, for better or worse.</p></div>
-        <div class="card pop"><h3>The honest gap</h3>
-          <p>No test files yet. That is the honest gap, and the roadmap in the visuals folder says what the first one should cover.</p></div>
-      </div>
-      <section id="run">
-        <h2>Run it</h2>
-        <p>The repo README has the exact commands for this one. The
-        shape is the shape for most of my projects: clone it, read the
-        top file first so you know what will happen, then run it on
-        something you do not mind breaking.</p>
-        <p class="mono">$ git clone https://github.com/ShadowGuard-AI/dm-data-access-pattern-masker.git<br>$ cd dm-data-access-pattern-masker</p>
-      </section>
-      
-  <section aria-label="real code">
-    <h2>The code, as it sits in the repo</h2>
-    <p>From <code>main.py</code>, line 9 on. I did
-    not tidy it for the page. What you see is what the file has.</p>
-    <pre class="code"><code>logging.basicConfig(level=logging.INFO, format=&#x27;%(asctime)s - %(levelname)s - %(message)s&#x27;)
+# dm-data-access-pattern-masker
+Masks access patterns to data during masking operations. It can reorder the records before applying other masking techniques. This prevents attackers from inferring information about the data or masking algorithm through observing access timings and order. Simple to implement with random index shuffling. - Focused on Tools designed to generate or mask sensitive data with realistic-looking but meaningless values
 
-def setup_argparse():
-    &quot;&quot;&quot;
-    Sets up the argument parser for the command-line interface.
+## Install
+`git clone https://github.com/ShadowGuardAI/dm-data-access-pattern-masker`
 
-    Returns:
-        argparse.ArgumentParser: The configured argument parser.
-    &quot;&quot;&quot;
-    parser = argparse.ArgumentParser(description=&quot;Masks access patterns to data during masking operations by shuffling data.&quot;)
-    parser.add_argument(&quot;input_file&quot;, help=&quot;Path to the input CSV file.&quot;)
-    parser.add_argument(&quot;output_file&quot;, help=&quot;Path to the output CSV file.&quot;)
-    parser.add_argument(&quot;--seed&quot;, type=int, default=None, help=&quot;Optional seed for the random number generator (for reproducibility).&quot;)
-    parser.add_argument(&quot;--header&quot;, action=&quot;store_true&quot;, help=&quot;Specify if the input CSV file has a header row. Defaults to False.&quot;)  # Added header argument
+## Usage
+`./dm-data-access-pattern-masker [params]`
 
-    return parser
+## Parameters
+- `input_file`: Path to the input CSV file
+- `output_file`: Path to the output CSV file. It must not be the input file: if the output path resolves to the input file, the run refuses and exits 1 before any write.
+- `--seed`: Optional seed for the random number generator (for reproducibility).
+- `--header`: Specify if the input CSV file has a header row. Defaults to False.
 
-def shuffle_data(input_file: str, output_file: str, seed: Union[int, None] = None, header: bool = False) -&gt; None:
-    &quot;&quot;&quot;
-    Shuffles the rows of a CSV file to mask access patterns.
-
-    Args:</code></pre>
-  </section>
-      <section id="files">
-        <h2>The files that matter</h2>
-        <table><tr><th>File</th><th>Lines</th></tr>
-        <tr><td><code>main.py</code></td><td>100</td></tr>
-        <tr><td><code>README.md</code></td><td>17</td></tr>
-        <tr><td><code>requirements.txt</code></td><td>1</td></tr>
-        <tr><td><code>banner.png</code></td><td>0</td></tr>
-        <tr><td><code>logo.png</code></td><td>0</td></tr>
-        </table>
-        <p>Names doing the work: <span class="mono">setup_argparse, shuffle_data, main</span>.</p>
-      </section>
-      <section id="sheets">
-        <h2>Drawn by hand</h2>
-        <p>I sketch my projects on notebook paper so I have to
-        understand them well enough to draw them. The full set,
-        with the counts and how they were counted, is the
-        <a href="https://github.com/ShadowGuard-AI/dm-data-access-pattern-masker/tree/main/dm-data-access-pattern-masker-Visuals">dm-data-access-pattern-masker-Visuals</a>
-        folder in the repo. Nothing is drawn over the binder holes.
-        That is a rule, not a style.</p>
-        <div class="shots">
-          <img src="assets/architecture.png" alt="Hand drawn architecture sheet for Dm Data Access Pattern Masker">
-          <img src="assets/flowchart.png" alt="Hand drawn flowchart sheet for Dm Data Access Pattern Masker">
-          <img src="assets/product-map.png" alt="Hand drawn product map sheet for Dm Data Access Pattern Masker">
-        </div>
-      </section>
-    </div>
-  </section>
-</main>
-<footer>
-  <p>Dm Data Access Pattern Masker is one of my projects. This page was written
-  from the repo itself on 2026-10-30: the counts are the
-  repo's counts, the code is the repo's code, and the gaps are the
-  repo's gaps.</p>
-</footer>
-</body>
-</html>
+## License
+Copyright (c) ShadowGuardAI</pre></section>
+</main></body></html>

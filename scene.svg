@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 300" role="img" aria-label="The polishing room in three bands: the tessellated floor and doorway still in the far band while daylight shifts slowly across them, the blade sliding forward and back on the stone in the middle band with water trembling at the hollow rim, and sand falling inside one hourglass while abacus beads slide along their rods in the near band">
+<rect width="900" height="300" fill="#57493a"/>
+<g>
+<polygon points="0,190 900,190 900,300 0,300" fill="#a89a80"/>
+<g stroke="#6d6046" stroke-width="2"><line x1="0" y1="228" x2="900" y2="228"/><line x1="0" y1="266" x2="900" y2="266"/><line x1="120" y1="190" x2="150" y2="300"/><line x1="330" y1="190" x2="360" y2="300"/><line x1="540" y1="190" x2="570" y2="300"/><line x1="740" y1="190" x2="770" y2="300"/></g>
+<rect x="790" y="30" width="86" height="170" fill="#463828"/>
+<polygon points="120,0 330,0 620,230 400,240" fill="#fff4c8" opacity="0.10">
+<animate attributeName="opacity" values="0.06;0.16;0.06" dur="24s" repeatCount="indefinite"/></polygon>
+</g>
+<g>
+<polygon points="250,232 650,232 668,268 232,268" fill="#605038"/>
+<polygon points="300,206 600,206 612,238 288,238" fill="#c8c0b4"/>
+<ellipse cx="450" cy="208" rx="118" ry="12" fill="#aab4b4"/>
+<g>
+<animateTransform attributeName="transform" type="translate" values="0 0; 34 0; 0 0; -34 0; 0 0" dur="9s" repeatCount="indefinite"/>
+<polygon points="268,188 700,182 700,196 268,202" fill="#a8aaa8"/>
+<polygon points="330,186 560,182 560,194 330,198" fill="#dee0dc"/>
+</g>
+<g fill="#d2e0de"><circle cx="356" cy="200" r="3"><animate attributeName="cy" values="200;197;200" dur="2.2s" repeatCount="indefinite"/></circle><circle cx="452" cy="198" r="3"><animate attributeName="cy" values="198;195;198" dur="1.8s" repeatCount="indefinite"/></circle><circle cx="548" cy="200" r="3"><animate attributeName="cy" values="200;197;200" dur="2.6s" repeatCount="indefinite"/></circle></g>
+<polygon points="306,206 330,206 334,238 308,238" fill="#ac2a22"/>
+</g>
+<g>
+<rect x="60" y="86" width="300" height="8" fill="#605038"/>
+<g stroke="#f4f1e9" stroke-width="2.4" fill="none"><polygon points="96,18 128,18 114,52 110,52"/><polygon points="110,52 114,52 128,86 96,86"/></g>
+<rect x="90" y="10" width="44" height="8" fill="#946734"/><rect x="90" y="86" width="44" height="8" fill="#946734"/>
+<g fill="#d8ba78"><circle r="2.2"><animateMotion path="M112 30 L112 78" dur="3s" repeatCount="indefinite"/></circle><circle r="2.2"><animateMotion path="M112 30 L112 78" dur="3s" begin="1s" repeatCount="indefinite"/></circle><circle r="2.2"><animateMotion path="M112 30 L112 78" dur="3s" begin="2s" repeatCount="indefinite"/></circle></g>
+<path d="M100 86 L112 62 L124 86 Z" fill="#d8ba78"><animate attributeName="d" values="M104 86 L112 74 L120 86 Z; M98 86 L112 56 L126 86 Z; M104 86 L112 74 L120 86 Z" dur="12s" repeatCount="indefinite"/></path>
+<g>
+<rect x="176" y="34" width="164" height="52" fill="#6e4a22"/>
+<g stroke="#946734" stroke-width="2"><line x1="188" y1="48" x2="328" y2="48"/><line x1="188" y1="66" x2="328" y2="66"/></g>
+<g fill="#946734"><circle r="6"><animateMotion path="M196 48 L268 48" dur="7s" repeatCount="indefinite"/></circle><circle r="6"><animateMotion path="M300 66 L232 66" dur="9s" repeatCount="indefinite"/></circle><circle cx="286" cy="48" r="6"/><circle cx="214" cy="66" r="6"/></g>
+</g>
+<g stroke="#f4f1e9" stroke-width="3"><line x1="392" y1="72" x2="452" y2="64"/><line x1="392" y1="82" x2="452" y2="76"/></g>
+</g>
+</svg>
