@@ -20,13 +20,13 @@ Masks access patterns to data during masking operations. It can reorder the reco
 
 ## Install
 
-`git clone https://github.com/ShadowGuardAI/dm-data-access-pattern-masker`
+`git clone https://github.com/ShadowGuard-AI/dm-data-access-pattern-masker`
 
 ![Minor separator](sep-light.svg)
 
 ## Usage
 
-`./dm-data-access-pattern-masker [params]`
+`python3 main.py input_file output_file [options]`
 
 > Record book entry: row contents are never altered by this tool. Only the order of the rows changes.
 
@@ -49,7 +49,7 @@ Masks access patterns to data during masking operations. It can reorder the reco
 
 ## License
 
-Copyright (c) ShadowGuardAI
+This project is released under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ![Major separator](sep-heavy.svg)
 
